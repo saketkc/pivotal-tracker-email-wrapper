@@ -1,0 +1,8 @@
+require 'rubygems'
+require 'net/imap'
+require 'hpricot'
+require 'tmail'
+require 'net/https'
+require 'uri'
+require 'cgi'
+require 'xmlsimple'
