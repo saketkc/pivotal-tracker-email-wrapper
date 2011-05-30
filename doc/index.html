@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=en_in" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><p>
+Ruby Version : 1.8.7 Gems Version : 1.3.7
+</p>
+<p>
+Requirements: &#8216;rubygems&#8217; &#8216;net/imap&#8217;
+&#8216;hpricot&#8217; &#8216;tmail&#8217; &#8216;net/https&#8217;
+&#8216;uri&#8217; &#8216;xmlsimple&#8217;
+</p>
+<p>
+Pivotal Tracker Ruby wrapper to Add New Stories to an existent project by
+sending an email to a specific email id which  acts like a bot id say
+bot@botmail.com. The main.rb file could be run as a Cron task to constantly
+monitor this email id. To Add a new Story to an existent Project the Format
+of the Email should be as follows: FromL requester_of_the_story@botmail.com
+To: bot@botmail.com CC: owner_of_the_story@botmil.com Subject: [Project
+Name][Story Type][Story Title] Body : Story Description
+</p>
+<p>
+****The Square brackets in subject line are compulsory  The person to whom
+the Story needs to be assigned needs to be CCed to this particular mail,
+else the requester of the email(the FROM field of the email) will be
+assigned the story himself !
+</p>
+<p>
+The following files are contained : i).   settings.rb ii).  config.rb iii).
+requirements.rb iv).  main.rb
+</p>
+<p>
++++++++++++++++++++++++<tt>Description</tt>+++++++++++++++++++++
+</p>
+<p>
+i). settings.rb This file acts as the &#8220;Token Generator&#8221;.
+Running this should be a one time affair(per user) for generating their
+corres ponding tokens. It is essential to generate tokens for all the
+members of the projects.  Everytime this file is run it appends the
+generated token to the &#8220;config.rb&#8221; file. ***Pivotal username is
+case sensitive . No error will be generated in case you enter a wrong
+username but  it may lead to erros while requesting/owning stories as
+Pivotal depeneds upon the &#8220;username&#8221; of the member and not his
+email id
+</p>
+<p>
+ii). config.rb
+</p>
+<p>
+This file stores all the generated TOKENS 
+</p>
+<p>
+iii). requirements.rb
+</p>
+<p>
+This file contains all the &#8220;require&#8221; statements.
+</p>
+<p>
+iv). main.rb
+</p>
+<p>
+This is the file that can be run as a cron task . This file montitors the
+bot IMAP account sa bot@botmail.com .All the incoming amils to this bot
+IMAP are constantly monitored for the pattern in  Subject:[Project
+Name][Story Type(feature/bug/chores)][Story Title] . Once this format is
+detected it fetches  the Project id corrreposnding to the Project name and
+then Adds a Story corresponding to the requester  against the owner.
+</p>
+<pre class="code">
+ 
+</pre>
+</div></div>
+    
+    <div id="footer">
+  Generated on Sun May 29 19:42:58 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

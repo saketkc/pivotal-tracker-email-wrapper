@@ -1,1 +1,61 @@
-A Ruby wrapper to assign tasks through pivotal .
+Ruby Version : 1.8.7
+Gems Version : 1.3.7
+
+Requirements:
+'rubygems'
+'net/imap'
+'hpricot'
+'tmail'
+'net/https'
+'uri'
+'xmlsimple'
+
+
+Pivotal Tracker Ruby wrapper to Add New Stories to an existent project by sending an email to a specific email id which 
+acts like a bot id say bot@botmail.com. The main.rb file could be run as a Cron task to constantly monitor this email id.
+To Add a new Story to an existent Project the Format of the Email should be as follows:
+FromL requester_of_the_story@botmail.com
+To: bot@botmail.com
+CC: owner_of_the_story@botmil.com
+Subject: [Project Name][Story Type][Story Title]
+Body : Story Description
+
+****The Square brackets in subject line are compulsory 
+The person to whom the Story needs to be assigned needs to be CCed to this particular mail,
+else the requester of the email(the FROM field of the email) will be assigned the story himself !
+
+The following files are contained :
+i).   settings.rb
+ii).  config.rb
+iii). requirements.rb
+iv).  main.rb
+
+++++++++++++++++++++++++Description++++++++++++++++++++++
+
+i). settings.rb
+This file acts as the "Token Generator". Running this should be a one time affair(per user) for generating their corres
+ponding tokens. It is essential to generate tokens for all the members of the projects. 
+Everytime this file is run it appends the generated token to the "config.rb" file.
+***Pivotal username is case sensitive . No error will be generated in case you enter a wrong username but 
+it may lead to erros while requesting/owning stories as Pivotal depeneds upon the "username" of the member and
+not his email id
+
+ii). config.rb
+
+This file stores all the generated TOKENS 
+
+iii). requirements.rb
+
+This file contains all the "require" statements.
+
+iv). main.rb
+
+This is the file that can be run as a cron task . This file montitors the bot IMAP account sa bot@botmail.com
+.All the incoming amils to this bot IMAP are constantly monitored for the pattern in 
+Subject:[Project Name][Story Type(feature/bug/chores)][Story Title] . Once this format is detected it fetches 
+the Project id corrreposnding to the Project name and then Adds a Story corresponding to the requester 
+against the owner.
+
+
+
+ 
