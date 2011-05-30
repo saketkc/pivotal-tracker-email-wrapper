@@ -1,0 +1,23 @@
+A Ruby wrapper to assign tasks through pivotal . The following files are contained
+1. settings.rb
+2. config.rb
+3. requirements.rb
+4. main.rb
+================Description=============
+1. settings.rb-
+This file should be run to generate pivotal tokens. Pivotal Tokens are required to access the API. 
+This should be a one time affair . The file when run asks for 3 parameters
+i).   Absolute directory location of 'config.rb' file . 
+ii).  The Pivotal Email of the user
+iii). The Pivotal Username
+iv).  The Pivotal password
+
+Running this file generates a token for corresponding user
+
+2. config.rb
+This file stores the TOKEN for all users , their username and their tokens.
+
+3. requirements.rb
+This file contains all the requirements of ruby gems/libraries.
+****Shoul
+d not be edited *****
